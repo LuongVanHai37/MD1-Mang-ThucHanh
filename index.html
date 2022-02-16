@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8/>
+    <title>JS Bin</title>
+    <style>
+        body {
+            padding-top: 50px
+        }
+    </style>
+</head>
+
+<body>
+<input type="text" id="txtValue"/>
+<input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"/>
+<input type="button" id="btnDisplay" value="Display" onclick="display_array();"/>
+<div id="result"></div>
+</body>
+<script>
+    //THỰC HÀNH BÀI 1;
+    let x = 0;
+    let array = Array();
+    function add_element_to_array() {
+        array[x] = document.getElementById("txtValue").value;
+        alert("Element: " + array[x] + " Added at index " + x);
+        x++;
+        document.getElementById("txtValue ").value = "";
+    }
+    function display_array() {
+        let e = "<hr/>";
+        for (let i = 0; i < array.length; i++) {
+            e += "Element " + i + " = " + array[i] + "<br/>";
+        }
+        document.getElementById("result").innerHTML = e;
+    }
+    //THỰC HÀNH BÀI 2;
+    let value = prompt("Enter a number: ");
+    let numbers = [-3, 5, 1, 3, 2, 10];
+    for (let i = 0; i < numbers.length; i++) {
+        if (value == numbers[i]) {
+            alert("Value " + numbers[i] + " found at " + i);
+        }
+    }
+    //THỰC HÀNH BÀI 3;
+    let number = [-3, 5, 1, 3, 2, 10];
+    let max = number[0];
+    let index = 0;
+    for (let i = 1; i < number.length; i++) {
+        if (number[i] > max) {
+            max = number[i];
+            index = i;
+        }
+    }
+    alert("max: " + max + " at position " + index);
+    //THỰC HÀNH BÀI 4;
+    let nums = [];
+    for(let i=0; i<100; ++i){
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    function findMax(arr) {
+        let max = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    let minValue = findMin(nums);
+    alert(nums);
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("The minimum value is: " + minValue);
+    let maxValue = findMax(nums);
+    document.write("<br/>");
+    document.write("The maximum value is: " + maxValue);
+    THỰC HÀNH BÀI 5;
+    let a = [-3, 5, 1, 3, 2, 10];
+    let first = 0;
+    let last = a.length - 1;
+    while (first < last) {
+        let b = a[first];
+        a[first] = a[last];
+        a[last] = b;
+        first++;
+        last--;
+    }
+    document.write(a);
+
+
+</script>
+</html>
